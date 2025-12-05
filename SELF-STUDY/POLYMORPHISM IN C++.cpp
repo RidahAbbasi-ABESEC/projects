@@ -10,8 +10,8 @@ using namespace std;
 //Run-time polymorphism: also called late binding and synamic polymorphism, implemented using function overriding with virtual functions
 //FUNCTION OVERRIDING: when deric=ved class defines one or more member functions of the base class.
 
-//THIS CODE WORKS PERFECTLY FINE IF CLASS MAIN IS RENAMED
-class main
+//THIS CODE WORKS PERFECTLY FINE IF CLASS IS NOT NAMED MAIN
+class base
 {
     public:
         virtual void display()      //virtual function
@@ -20,7 +20,7 @@ class main
         }
 };
 
-class derived : public main
+class derived : public base
 {
     public:
         void display() override     //overriding base function with derived class funciton
@@ -32,7 +32,7 @@ class derived : public main
 int main()
 {
     derived object;     //derived class object
-    main* mainpoint;     //pointer of type base
+    base* mainpoint;     //pointer of type base
     mainpoint = &object;        //pint the base class pointer to derived class object
     mainpoint -> display();
     return 0;
